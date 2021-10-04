@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css"> 
+
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body>
@@ -300,6 +302,12 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="col">
+					<button id="rzp-button1">Pay</button>
+				</div>
+			</div>
 			<!-- <div class="row footer_bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text">
 			 
@@ -327,6 +335,64 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/theme.js"></script>
+
+
+	<script>
+
+        var createOrder = async function () {
+            fetch('https://api.razorpay.com/v1/orders', {
+                method: 'post',
+                headers: new Headers({
+                    'Authorization': 'Basic ' + btoa('rzp_live_YiyObW6KALUQCy:gjidQwws3E3qc7RlToJmgbq2'),
+                    'Content-Type': 'application/json'
+                }),
+                body: {
+                    "amount": 100,
+                    "currency": "INR",
+                    "receipt": "receipt0001"
+                }
+            }).then(function (order) {
+
+                //Creating Rozarpay Options
+                var options = {
+                    "key": "rzp_live_YiyObW6KALUQCy", // Enter the Key ID generated from the Dashboard   
+                    "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise    
+                    "currency": "INR",
+                    "name": "Acme Corp",
+                    "description": "Test Transaction",
+                    "image": "https://example.com/your_logo",
+                    "order_id": order.id,   //This is a sample Order ID. Pass the `id` obtained in the response of Step 1    
+                    "handler": function (response) { 
+                        alert(response.razorpay_payment_id); 
+                        alert(response.razorpay_order_id); 
+                        alert(response.razorpay_signature) },
+                    "prefill": {
+                        "name": "Pankaz Negi",
+                        "email": "pankaznegi@gmail.com",
+                        "contact": "8077657633"
+                    },
+                    "notes": { "address": "Razorpay Corporate Office" }, "theme": { "color": "#3399cc" }
+                };
+
+                //Creating RazorPay Object
+                var rzp1 = new Razorpay(options);
+                rzp1.on('payment.failed', function (response) {
+                    alert(response.error.code);
+                    alert(response.error.description);
+                    alert(response.error.source);
+                    alert(response.error.step);
+                    alert(response.error.reason);
+                    alert(response.error.metadata.order_id);
+                    alert(response.error.metadata.payment_id);
+                });
+
+                rzp1.open()
+            })
+        }
+
+
+        document.getElementById('rzp-button1').onclick = function (e) { createOrder(); e.preventDefault(); }</script>
+</body>
 
 
 </body>
