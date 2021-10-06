@@ -340,6 +340,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script>
 
         var createOrder = async function () {
+<<<<<<< HEAD
             // fetch('https://api.razorpay.com/v1/orders', {
             //     method: 'post',
             //     headers: new Headers({
@@ -354,6 +355,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             // }).then(function (order) 
 			
 			{
+=======
+            fetch('https://api.razorpay.com/v1/orders', {
+                method: 'post',
+                headers: new Headers({
+                    'Authorization': 'Basic ' + 'rzp_live_YiyObW6KALUQCy:gjidQwws3E3qc7RlToJmgbq2',
+                    'Content-Type': 'application/json'
+                }),
+                body: {
+                    "amount": 100,
+                    "currency": "INR",
+                    "receipt": "receipt0001"
+                }
+            }).then(function (order) {
+>>>>>>> 38e2d5088081ea0dbc5d408b738e596dedded715
 
                 //Creating Rozarpay Options
                 var options = {
