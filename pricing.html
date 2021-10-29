@@ -875,7 +875,9 @@ rzp1.open();
 
       })}
 
-        document.getElementById('rzp-button1').onclick = function (e) {console.log("clicked"); createOrder(e.target.value); e.preventDefault(); }</script>
+        document.getElementById('rzp-button1').onclick = function (e) {
+          const amt  = document.getElementById('amount').value
+          console.log("clicked"); createOrder(amt); e.preventDefault(); }</script>
 
 
 
