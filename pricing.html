@@ -847,8 +847,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             }
 			// )
         }
-        function createOrder(amount){
-        const amount = parseInt(amount)
+        function createOrder(amt){
+        const amount = parseInt(amt)
         if(amount < 10){alert('Please enter a valid amount'); return;}
         axios.post('https://impankaz.herokuapp.com/order?amount='+amount).then(info=>{
             console.log(info)
