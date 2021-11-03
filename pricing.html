@@ -6,7 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="img/download.jfif" type="image/jfif">
-  <title>Pankaj Negi - Full Stack professional</title>
+  <title>Price and Plans : Website Developement in affortabel pricing</title>
+  <meta name="description" content="I have listed some of the most affortabel website plans for the businesses using cutting edge technologies and high security. Pricing of SPA, PWA and other plans.">
+  <meta name="keywords" content="Website developer, web design, website price">
+  <meta name="author" content="Pankaj Negi"> 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -16,6 +19,7 @@
   <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
   <!-- main css -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/donation.css">
   <style>
     section.pricing {
       /* background: #007bff;
@@ -137,7 +141,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="pankaj negi"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -147,6 +151,77 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-end">
+              <li class="nav-item">
+                <div class="container theme-background-white main-body">
+                  <div class="col-md-12">
+                    <div class="row donate-bar">  
+                      <div class="col-md-4 theme-blue">
+                        LIKED MY WORK?
+                      </div>
+                      <div class="col-md-8">
+                        <ul class="nav navbar-nav navbar-left donate-buttons" id="donate-buttons">
+                          <li><a href="#">
+                            <button class="btn-blue active" data-dollars='1000' data-impact="It means a lot!">
+                              1000
+                            </button>
+                          </a></li>
+                          <li><a href="#">
+                            <button class="btn-blue" data-dollars='2000' data-impact="It means a lot!">
+                              2000
+                            </button>
+                          </a></li>
+                          <li><a href="#">
+                            <button class="btn-blue" data-dollars='5000' data-impact="It means a lot!">
+                              5000
+                            </button>
+                          </a></li>
+                          <li><a href="#">
+                            <button class="btn-blue" data-dollars='8000' data-impact="It means a lot!">
+                              8000
+                            </button>
+                          </a></li>
+                          <li id="other"><a href="#">
+                            <button class="btn-blue-other" data-dollars='other' data-impact="Thank you!">
+                              OTHER
+                            </button>
+                          </a></li>
+                          <li id="other-input">
+                            <span>&#8377;</span>
+                           <input data-impact="That’s great. Thank you!">
+                          </li>
+                          <li><a href="#">
+                            <button class="btn-green" id="donate-init" data-toggle="modal" data-target="#myModal">
+                              DONATE
+                            </button>
+                          </a></li>
+                          <li style="display: none;"><a href="#">
+                            LEARN MORE<i class="fa fa-chevron-right margin-left"></i>
+                          </a></li>
+                        </ul>
+                        <p class="impact">
+                          We make a living by what we get
+                        </p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header well text-center theme-background-blue">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h2>You’re Donating:</h2>
+                                <h1 style="font-size: 5.5em; margin-top: 0;">&#8377;<span id="price"></span></h1>
+                                <em>Thank you!</em>
+                              </div>                           
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">BACK</button>
+                                <button type="button" class="btn-green" id="donate-btn">CONTINUE</button>
+                              </div>
+                            </div><!-- /.modal-content -->
+                          </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                      </div>
+                    </div><!--/.donate-bar-->
+                  </div><!-- /.col-md-12 -->
+              </li>
               <li class="nav-item active"><a class="nav-link" href="/react-gh-pages">Log In</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 							<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
@@ -774,7 +849,7 @@
           <div class="footer_top flex-column">
             <div class="footer_logo">
               <a href="#">
-                <img src="img/logo.png" alt="">
+                <img src="img/logo.png" alt="pankaj negi contact details">
               </a>
               <br> <br> <br>
               <table class="table">
@@ -855,8 +930,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="js/gmaps.min.js"></script>
   <script src="js/theme.js"></script>
-
-
+<!--Donation scripts-->
+<script src="js/donation.js"></script>
   <script>
 
     var createOrder2 = async function () {
