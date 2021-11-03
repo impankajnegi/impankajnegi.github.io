@@ -943,8 +943,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     }
 
     document.getElementById('rzp-button1').onclick = function (e) {
-      const amt = document.getElementById('amount').value
+      debugger;
+      e.target.innerHTML="please wait.."
+      e.target.style.backgroundColor = "#e4d40f"
+      e.target.style.disabled = true
+
+      let amtEle = document.getElementById('amount');
+      amtEle.disabled = true;
+      let amt = amtEle.value      
       console.log("clicked"); createOrder(amt); e.preventDefault();
+       amtEle.disabled = false;
     }</script>
 
 
