@@ -1,281 +1,471 @@
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font-sans); color: var(--color-text-primary); }
-.site { max-width: 960px; margin: 0 auto; padding: 0 1.5rem 3rem; }
-.hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border-radius: var(--border-radius-lg); padding: 3.5rem 2.5rem; margin-bottom: 3rem; color: white; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.hero-text h3 { font-size: 14px; font-weight: 400; letter-spacing: 3px; color: #64b5f6; margin-bottom: 0.75rem; text-transform: uppercase; }
-.hero-text h1 { font-size: 42px; font-weight: 500; margin-bottom: 0.5rem; }
-.hero-text h2 { font-size: 18px; font-weight: 400; color: #90caf9; margin-bottom: 1.5rem; }
-.hero-text p { font-size: 14px; color: #b0bec5; margin-bottom: 2rem; max-width: 420px; line-height: 1.7; }
-.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-primary { background: #1976d2; color: white; border: none; padding: 11px 24px; border-radius: var(--border-radius-md); font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; }
-.btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); padding: 11px 24px; border-radius: var(--border-radius-md); font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; }
-.avatar-circle { width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, #1976d2, #42a5f5); display: flex; align-items: center; justify-content: center; font-size: 52px; font-weight: 500; color: white; flex-shrink: 0; border: 4px solid rgba(255,255,255,0.2); }
-.section { margin-bottom: 3rem; }
-.section-title { font-size: 22px; font-weight: 500; margin-bottom: 0.5rem; }
-.section-sub { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.75rem; }
-.divider { height: 3px; width: 48px; background: #1976d2; border-radius: 2px; margin-bottom: 1.75rem; }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
-.skill-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem 1rem; text-align: center; }
-.skill-icon { font-size: 28px; margin-bottom: 0.5rem; }
-.skill-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-.skill-years { font-size: 12px; color: var(--color-text-secondary); }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-.pricing-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; position: relative; }
-.pricing-card.featured { border: 2px solid #1976d2; }
-.featured-badge { background: #e3f2fd; color: #1565c0; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 0.75rem; }
-.pricing-label { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 4px; }
-.pricing-rate { font-size: 28px; font-weight: 500; margin-bottom: 0.25rem; }
-.pricing-unit { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem; }
-.pricing-features { list-style: none; font-size: 13px; }
-.pricing-features li { padding: 5px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); }
-.pricing-features li:last-child { border-bottom: none; }
-.check { color: #1976d2; margin-right: 6px; }
-.milestone-box { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.5rem 2rem; border-left: 4px solid #1976d2; }
-.milestone-box h3 { font-size: 16px; font-weight: 500; margin-bottom: 0.5rem; }
-.milestone-box p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
-.contact-box { background: #1a1a2e; border-radius: var(--border-radius-lg); padding: 2.5rem; text-align: center; color: white; }
-.contact-box h2 { font-size: 24px; font-weight: 500; margin-bottom: 0.5rem; }
-.contact-box p { font-size: 14px; color: #90caf9; margin-bottom: 1.75rem; }
-.contact-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.contact-item { background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.2); border-radius: var(--border-radius-md); padding: 10px 18px; font-size: 14px; color: white; display: flex; align-items: center; gap: 8px; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-.testimonial-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
-.stars { color: #f59e0b; font-size: 14px; margin-bottom: 0.75rem; }
-.testimonial-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
-.testimonial-author { display: flex; align-items: center; gap: 10px; }
-.author-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
-.author-name { font-size: 13px; font-weight: 500; }
-.author-loc { font-size: 11px; color: var(--color-text-secondary); }
-.nav-bar { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; margin-bottom: 2rem; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.nav-logo { font-size: 18px; font-weight: 500; }
-.nav-logo span { color: #1976d2; }
-.nav-links { display: flex; gap: 1.5rem; }
-.nav-links a { font-size: 13px; color: var(--color-text-secondary); text-decoration: none; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-@media(max-width: 600px) { .about-grid { grid-template-columns: 1fr; } .hero-text h1 { font-size: 30px; } }
-.about-intro { font-size: 15px; color: var(--color-text-secondary); line-height: 1.8; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
-.tag { background: var(--color-background-info); color: var(--color-text-info); font-size: 12px; padding: 4px 10px; border-radius: 20px; }
-.footer { border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1.5rem; text-align: center; font-size: 12px; color: var(--color-text-secondary); }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#1565c0;--accent-light:#e3f2fd;--accent-mid:#1976d2;--dark:#0d1b2a;--dark2:#1a2a3a}
+.wrap{font-family:var(--font-sans);color:var(--color-text-primary);max-width:980px;margin:0 auto;padding:0 1.25rem 4rem}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:0}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:36px;height:36px;background:#1565c0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:500;font-size:14px}
+.logo-text{font-size:16px;font-weight:500}
+.logo-text span{color:#1565c0}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--color-text-secondary);text-decoration:none}
+.nav-cta{background:#1565c0;color:#fff;padding:8px 18px;border-radius:var(--border-radius-md);font-size:13px;font-weight:500;text-decoration:none}
+
+.hero{display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;padding:5rem 0 4rem;border-bottom:0.5px solid var(--color-border-tertiary)}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+.avail-dot{width:8px;height:8px;background:#22c55e;border-radius:50%}
+.avail-label{font-size:12px;color:#15803d;background:#dcfce7;padding:3px 10px;border-radius:20px;font-weight:500}
+.hero h1{font-size:48px;font-weight:500;line-height:1.15;margin-bottom:0.75rem;letter-spacing:-0.5px}
+.hero h1 span{color:#1565c0}
+.hero-role{font-size:18px;color:var(--color-text-secondary);margin-bottom:1.25rem;font-weight:400}
+.hero-desc{font-size:15px;color:var(--color-text-secondary);line-height:1.8;max-width:480px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-blue{background:#1565c0;color:#fff;padding:12px 26px;border-radius:var(--border-radius-md);font-size:14px;font-weight:500;text-decoration:none;border:none;cursor:pointer}
+.btn-ghost{background:transparent;color:var(--color-text-primary);padding:12px 26px;border-radius:var(--border-radius-md);font-size:14px;font-weight:500;text-decoration:none;border:0.5px solid var(--color-border-secondary)}
+.avatar-wrap{position:relative;flex-shrink:0}
+.avatar{width:200px;height:200px;border-radius:50%;background:#1565c0;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:500;color:#fff;border:4px solid var(--color-background-primary);outline:0.5px solid var(--color-border-tertiary)}
+.avail-badge{position:absolute;bottom:12px;right:12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:5px 12px;font-size:11px;color:var(--color-text-secondary);display:flex;align-items:center;gap:6px}
+
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin:3rem 0}
+.stat-item{padding:1.5rem;text-align:center;border-right:0.5px solid var(--color-border-tertiary)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:32px;font-weight:500;color:#1565c0;line-height:1}
+.stat-label{font-size:12px;color:var(--color-text-secondary);margin-top:6px}
+
+.section{padding:3.5rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.sec-header{margin-bottom:2.5rem}
+.sec-eyebrow{font-size:11px;font-weight:500;color:#1565c0;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem}
+.sec-title{font-size:30px;font-weight:500;line-height:1.2}
+.sec-sub{font-size:14px;color:var(--color-text-secondary);margin-top:0.5rem;line-height:1.7}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-p{font-size:15px;color:var(--color-text-secondary);line-height:1.85;margin-bottom:1rem}
+.stack-label{font-size:12px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;margin-top:1.25rem}
+.stack-tags{display:flex;flex-wrap:wrap;gap:6px}
+.stack-tag{font-size:12px;background:var(--color-background-secondary);color:var(--color-text-secondary);padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary)}
+.stack-tag.highlight{background:#e3f2fd;color:#0c447c;border-color:#85b7eb}
+.info-rows{display:flex;flex-direction:column;gap:0}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:14px}
+.info-row:last-child{border-bottom:none}
+.info-key{color:var(--color-text-secondary)}
+.info-val{font-weight:500;text-align:right}
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.skill-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;transition:border-color 0.2s}
+.skill-icon-wrap{width:44px;height:44px;border-radius:var(--border-radius-md);background:#e3f2fd;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.skill-icon-svg{width:22px;height:22px;fill:#1565c0}
+.skill-name{font-size:15px;font-weight:500;margin-bottom:4px}
+.skill-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.skill-bar-wrap{margin-top:12px;height:3px;background:var(--color-background-secondary);border-radius:2px}
+.skill-bar{height:3px;background:#1565c0;border-radius:2px}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:2rem}
+.price-card.featured{border:2px solid #1565c0;position:relative}
+.feat-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#1565c0;color:#fff;font-size:11px;font-weight:500;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.price-icon{width:40px;height:40px;border-radius:var(--border-radius-md);background:#e3f2fd;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:18px}
+.price-title{font-size:16px;font-weight:500;margin-bottom:4px}
+.price-sub{font-size:12px;color:var(--color-text-secondary);margin-bottom:1.5rem}
+.price-features{list-style:none;font-size:13px;display:flex;flex-direction:column;gap:10px}
+.price-features li{display:flex;align-items:flex-start;gap:8px;color:var(--color-text-secondary);line-height:1.5}
+.check-icon{width:16px;height:16px;border-radius:50%;background:#e3f2fd;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.check-inner{width:6px;height:6px;border-radius:50%;background:#1565c0}
+
+.milestone-strip{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.75rem 2rem;margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;border-left:3px solid #1565c0;border-radius:0}
+.ms-icon{width:48px;height:48px;background:#e3f2fd;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px}
+.ms-title{font-size:15px;font-weight:500;margin-bottom:4px}
+.ms-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.testi-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem;display:flex;flex-direction:column;gap:1rem}
+.testi-stars{display:flex;gap:2px}
+.star{width:14px;height:14px;fill:#f59e0b}
+.testi-quote{font-size:13px;color:var(--color-text-secondary);line-height:1.75;font-style:italic;flex:1}
+.testi-author{display:flex;align-items:center;gap:10px;border-top:0.5px solid var(--color-border-tertiary);padding-top:1rem}
+.author-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0}
+.author-name{font-size:13px;font-weight:500}
+.author-info{font-size:11px;color:var(--color-text-secondary)}
+.flag{font-size:12px}
+
+.contact-section{padding:4rem 0 0}
+.contact-inner{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;border:0.5px solid var(--color-border-tertiary)}
+.contact-left h2{font-size:28px;font-weight:500;margin-bottom:0.75rem}
+.contact-left p{font-size:14px;color:var(--color-text-secondary);line-height:1.8;margin-bottom:2rem}
+.contact-chips{display:flex;flex-direction:column;gap:12px}
+.chip{display:flex;align-items:center;gap:12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 16px}
+.chip-icon{width:36px;height:36px;border-radius:var(--border-radius-md);background:#e3f2fd;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chip-label{font-size:11px;color:var(--color-text-secondary)}
+.chip-val{font-size:14px;font-weight:500}
+.contact-right{display:flex;flex-direction:column;gap:12px}
+.email-btn{display:block;text-align:center;background:#1565c0;color:#fff;padding:16px;border-radius:var(--border-radius-md);font-size:15px;font-weight:500;text-decoration:none;letter-spacing:0.3px}
+.email-btn-ghost{display:block;text-align:center;color:#1565c0;padding:14px;border-radius:var(--border-radius-md);font-size:14px;font-weight:500;text-decoration:none;border:0.5px solid #85b7eb;background:var(--color-background-primary)}
+.response-note{font-size:12px;color:var(--color-text-secondary);text-align:center;line-height:1.6}
+
+.footer{display:flex;justify-content:space-between;align-items:center;padding:2rem 0;border-top:0.5px solid var(--color-border-tertiary);margin-top:3rem;flex-wrap:wrap;gap:1rem}
+.footer-left{font-size:13px;color:var(--color-text-secondary)}
+.footer-right{font-size:13px;color:var(--color-text-secondary)}
+
+@media(max-width:680px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:32px}
+  .avatar-wrap{display:none}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.skills-grid,.pricing-grid,.contact-inner{grid-template-columns:1fr}
+  .hero-btns{justify-content:center}
+  .nav-links{display:none}
+}
 </style>
 
-<div class="site">
-  <nav class="nav-bar">
-    <div class="nav-logo">Go <span>Vynior</span></div>
+<div class="wrap">
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-mark">PN</div>
+      <div class="logo-text">Pankaj <span>Negi</span></div>
+    </div>
     <div class="nav-links">
+      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#pricing">Pricing</a>
       <a href="#testimonials">Clients</a>
-      <a href="mailto:support@govynior.com">Contact</a>
     </div>
+    <a href="mailto:support@govynior.com" class="nav-cta">Hire me</a>
   </nav>
 
   <section class="hero">
-    <div class="hero-text">
-      <h3>Hello, I'm</h3>
-      <h1>Pankaj Negi</h1>
-      <h2>Full Stack Developer &amp; Freelancer</h2>
-      <p>Bangalore-based software engineer with 4+ years of experience building scalable web applications. Available for freelance projects — let's build something great together.</p>
-      <div class="btn-row">
-        <a href="mailto:support@govynior.com" class="btn-primary">Hire Me</a>
-        <a href="mailto:support@govynior.com" class="btn-outline">Send Email</a>
+    <div>
+      <div class="hero-eyebrow">
+        <div class="avail-dot"></div>
+        <div class="avail-label">Available for freelance</div>
+      </div>
+      <h1>Hi, I'm<br><span>Pankaj Negi</span></h1>
+      <div class="hero-role">Full Stack Developer &amp; Software Consultant</div>
+      <p class="hero-desc">Bangalore-based senior developer with 8+ years of experience building scalable web platforms, enterprise APIs, and cloud-ready applications. I work with startups and global companies to ship reliable software.</p>
+      <div class="hero-btns">
+        <a href="mailto:support@govynior.com" class="btn-blue">Hire me now</a>
+        <a href="#pricing" class="btn-ghost">View pricing</a>
       </div>
     </div>
-    <div class="avatar-circle">PN</div>
+    <div class="avatar-wrap">
+      <div class="avatar">PN</div>
+      <div class="avail-badge">
+        <div style="width:7px;height:7px;background:#22c55e;border-radius:50%"></div>
+        Open to work
+      </div>
+    </div>
   </section>
 
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Years experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">Projects delivered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Happy clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Countries served</div>
+    </div>
+  </div>
+
   <section class="section" id="about">
-    <div class="section-title">About me</div>
-    <div class="divider"></div>
+    <div class="sec-header">
+      <div class="sec-eyebrow">About me</div>
+      <div class="sec-title">Senior developer,<br>consultant &amp; freelancer</div>
+    </div>
     <div class="about-grid">
       <div>
-        <p class="about-intro">I'm a full stack developer based in Bangalore, India, with expertise in building modern web applications from the ground up. I work with startups and established companies across India and internationally to deliver high-quality software solutions on time and within budget.</p>
-        <div class="tag-list">
-          <span class="tag">Full Stack</span>
-          <span class="tag">Freelancer</span>
-          <span class="tag">4+ Years Exp</span>
-          <span class="tag">Bangalore</span>
+        <p class="about-p">With over 8 years of hands-on experience, I specialize in architecting and building end-to-end web applications — from pixel-perfect front-ends to high-performance backend APIs and distributed systems.</p>
+        <p class="about-p">I have worked with clients across India, Germany, and other European markets, delivering projects across fintech, e-commerce, SaaS, and enterprise software domains.</p>
+        <div class="stack-label">Core technologies</div>
+        <div class="stack-tags">
+          <span class="stack-tag highlight">React / Redux</span>
+          <span class="stack-tag highlight">Node.js / NestJS</span>
+          <span class="stack-tag highlight">.NET / ASP.NET Core</span>
+          <span class="stack-tag highlight">TypeScript</span>
+          <span class="stack-tag">Python / Flask</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">ElasticSearch</span>
+          <span class="stack-tag">Redis</span>
+          <span class="stack-tag">Docker</span>
+          <span class="stack-tag">Git</span>
+          <span class="stack-tag">Bootstrap</span>
+          <span class="stack-tag">RabbitMQ</span>
         </div>
       </div>
       <div>
-        <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.8;">
-          <strong style="font-weight:500;color:var(--color-text-primary);">Languages:</strong> JavaScript, TypeScript, Python, C#<br>
-          <strong style="font-weight:500;color:var(--color-text-primary);">Frameworks:</strong> React, NestJS, .NET / ASP.NET Core<br>
-          <strong style="font-weight:500;color:var(--color-text-primary);">Libraries:</strong> Redux, Express, Puppeteer<br>
-          <strong style="font-weight:500;color:var(--color-text-primary);">Tools:</strong> Node, RabbitMQ, Git, Docker<br>
-          <strong style="font-weight:500;color:var(--color-text-primary);">Databases:</strong> PostgreSQL, ElasticSearch, Redis<br>
-          <strong style="font-weight:500;color:var(--color-text-primary);">Front-end:</strong> HTML5, CSS3, Bootstrap, MaterialUI
-        </p>
+        <div class="info-rows">
+          <div class="info-row"><span class="info-key">Location</span><span class="info-val">Bangalore, India</span></div>
+          <div class="info-row"><span class="info-key">Experience</span><span class="info-val">8+ years</span></div>
+          <div class="info-row"><span class="info-key">Specialization</span><span class="info-val">Full Stack Development</span></div>
+          <div class="info-row"><span class="info-key">Frameworks</span><span class="info-val">React, NestJS, .NET</span></div>
+          <div class="info-row"><span class="info-key">Databases</span><span class="info-val">Postgres, Redis, Elastic</span></div>
+          <div class="info-row"><span class="info-key">Languages</span><span class="info-val">JS, TS, Python, C#</span></div>
+          <div class="info-row"><span class="info-key">Email</span><span class="info-val" style="color:#1565c0">support@govynior.com</span></div>
+          <div class="info-row"><span class="info-key">Phone</span><span class="info-val">+91 80776 57633</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="skills">
-    <div class="section-title">Expertise</div>
-    <div class="section-sub">Technologies I work with professionally</div>
-    <div class="divider"></div>
+    <div class="sec-header">
+      <div class="sec-eyebrow">Expertise</div>
+      <div class="sec-title">What I build &amp; deliver</div>
+      <div class="sec-sub">8+ years of professional experience across the full stack</div>
+    </div>
     <div class="skills-grid">
       <div class="skill-card">
-        <div class="skill-icon">⚛️</div>
+        <div class="skill-icon-wrap">
+          <svg class="skill-icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
         <div class="skill-name">React / Redux</div>
-        <div class="skill-years">8+ years experience</div>
+        <div class="skill-desc">Building complex SPAs, dashboards, and interactive UIs with state management.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🟢</div>
-        <div class="skill-name">Node / Express</div>
-        <div class="skill-years">8+ years experience</div>
+        <div class="skill-icon-wrap">
+          <svg class="skill-icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="skill-name">Node.js / NestJS</div>
+        <div class="skill-desc">RESTful APIs, microservices, and server-side logic with Express and NestJS.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🔷</div>
-        <div class="skill-name">.NET / ASP.NET</div>
-        <div class="skill-years">C# full-stack dev</div>
+        <div class="skill-icon-wrap">
+          <svg class="skill-icon-svg" viewBox="0 0 24 24"><path d="M20 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5 7H9v-2h6v2z"/></svg>
+        </div>
+        <div class="skill-name">.NET / ASP.NET Core</div>
+        <div class="skill-desc">Enterprise C# applications, Web APIs, and backend services on the .NET platform.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🐍</div>
+        <div class="skill-icon-wrap">
+          <svg class="skill-icon-svg" viewBox="0 0 24 24"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.72L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg>
+        </div>
         <div class="skill-name">Python / Flask</div>
-        <div class="skill-years">API development</div>
+        <div class="skill-desc">Backend APIs, automation scripts, and data processing pipelines with Python.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🗄️</div>
+        <div class="skill-icon-wrap">
+          <svg class="skill-icon-svg" viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+        </div>
         <div class="skill-name">Databases</div>
-        <div class="skill-years">Postgres, Redis, Elastic</div>
+        <div class="skill-desc">PostgreSQL, ElasticSearch, and Redis — schema design, query optimization, caching.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🧩</div>
-        <div class="skill-name">NestJS</div>
-        <div class="skill-years">Backend architecture</div>
+        <div class="skill-icon-wrap">
+          <svg class="skill-icon-svg" viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <div class="skill-name">DevOps &amp; Tools</div>
+        <div class="skill-desc">Git, Docker, RabbitMQ, WebSockets — infrastructure, CI/CD, and distributed messaging.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="pricing">
-    <div class="section-title">Engagement models</div>
-    <div class="section-sub">Flexible working arrangements to suit your project</div>
-    <div class="divider"></div>
+    <div class="sec-header">
+      <div class="sec-eyebrow">Pricing &amp; engagement</div>
+      <div class="sec-title">Flexible working models</div>
+      <div class="sec-sub">Choose the engagement style that best fits your project scope and timeline</div>
+    </div>
     <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-label">Hourly basis</div>
-        <div class="pricing-rate">Pay-per-hour</div>
-        <div class="pricing-unit">Ideal for small tasks &amp; consultations</div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span>Flexible hours</li>
-          <li><span class="check">✓</span>Billed after each session</li>
-          <li><span class="check">✓</span>No long-term commitment</li>
-          <li><span class="check">✓</span>Quick turnarounds</li>
+      <div class="price-card">
+        <div class="price-icon">⏱</div>
+        <div class="price-title">Hourly basis</div>
+        <div class="price-sub">Best for consultations and small tasks</div>
+        <ul class="price-features">
+          <li><div class="check-icon"><div class="check-inner"></div></div>Pay only for hours worked</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Flexible, no long commitment</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Billed after each session</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Quick turnaround on tasks</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Transparent time tracking</li>
         </ul>
       </div>
-      <div class="pricing-card featured">
-        <div class="featured-badge">Most popular</div>
-        <div class="pricing-label">Weekly basis</div>
-        <div class="pricing-rate">Fixed weekly rate</div>
-        <div class="pricing-unit">Best for ongoing projects</div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span>Dedicated weekly hours</li>
-          <li><span class="check">✓</span>Weekly progress reports</li>
-          <li><span class="check">✓</span>Priority availability</li>
-          <li><span class="check">✓</span>Consistent delivery</li>
+      <div class="price-card featured">
+        <div class="feat-badge">Most popular</div>
+        <div class="price-icon">📅</div>
+        <div class="price-title">Weekly retainer</div>
+        <div class="price-sub">Ideal for ongoing product development</div>
+        <ul class="price-features">
+          <li><div class="check-icon"><div class="check-inner"></div></div>Dedicated weekly hours block</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Weekly progress reports</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Priority response &amp; availability</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Consistent, predictable delivery</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Better rate than hourly</li>
         </ul>
       </div>
-      <div class="pricing-card">
-        <div class="pricing-label">Milestone based</div>
-        <div class="pricing-rate">Pay-as-you-go</div>
-        <div class="pricing-unit">Tied to project deliverables</div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span>Payment on milestone completion</li>
-          <li><span class="check">✓</span>Defined scope per phase</li>
-          <li><span class="check">✓</span>Low risk for clients</li>
-          <li><span class="check">✓</span>Full transparency</li>
+      <div class="price-card">
+        <div class="price-icon">🎯</div>
+        <div class="price-title">Milestone based</div>
+        <div class="price-sub">Perfect for defined project scopes</div>
+        <ul class="price-features">
+          <li><div class="check-icon"><div class="check-inner"></div></div>Pay only on delivery</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Clear scope per phase</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Zero financial risk for clients</div></li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Full transparency at every step</li>
+          <li><div class="check-icon"><div class="check-inner"></div></div>Milestone sign-off before next phase</li>
         </ul>
       </div>
     </div>
-
-    <div class="milestone-box" style="margin-top:1.5rem;">
-      <h3>Milestone payment assurance</h3>
-      <p>Work is delivered in clearly defined phases. You pay only when each milestone is completed and approved — no upfront lump sums, no hidden costs. This ensures full accountability and peace of mind throughout the project lifecycle.</p>
+    <div class="milestone-strip" style="margin-top:1.5rem;background:var(--color-background-secondary);padding:1.5rem 2rem;display:flex;align-items:flex-start;gap:1.25rem;border-left:3px solid #1565c0">
+      <div style="flex:1">
+        <div style="font-size:15px;font-weight:500;margin-bottom:4px">Milestone payment assurance</div>
+        <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.75">Work is broken into clearly defined phases with agreed deliverables. You pay only when a milestone is completed and approved by you — no upfront lump sums, no surprises. This model ensures full accountability and complete peace of mind throughout the engagement.</div>
+      </div>
     </div>
   </section>
 
   <section class="section" id="testimonials">
-    <div class="section-title">Client testimonials</div>
-    <div class="section-sub">What my clients say about working with me</div>
-    <div class="divider"></div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Pankaj delivered our React dashboard ahead of schedule. His understanding of complex UI requirements and clean code structure saved us weeks of rework. Highly recommend for any front-end heavy project."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#e3f2fd;color:#1565c0;">RK</div>
+    <div class="sec-header">
+      <div class="sec-eyebrow">Client testimonials</div>
+      <div class="sec-title">Trusted by clients globally</div>
+      <div class="sec-sub">From Bangalore to Berlin — here is what my clients say</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"Pankaj delivered our React dashboard ahead of schedule. His understanding of complex UI requirements and exceptionally clean code saved us weeks of rework. A truly senior-level developer."</p>
+        <div class="testi-author">
+          <div class="author-av" style="background:#e3f2fd;color:#0c447c">RK</div>
           <div>
             <div class="author-name">Rajesh Kumar</div>
-            <div class="author-loc">Product Manager, Bengaluru, India</div>
+            <div class="author-info">Product Manager · Bengaluru, India 🇮🇳</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Sehr professionell und pünktlich. Pankaj has built our .NET backend API exactly to specification. Communication was smooth despite the time difference. We will definitely work with him again."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#e8f5e9;color:#2e7d32;">MS</div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"Sehr professionell und pünktlich. Pankaj built our .NET Core backend API exactly to specification. Communication was seamless despite the time difference. We will definitely work with him again."</p>
+        <div class="testi-author">
+          <div class="author-av" style="background:#e8f5e9;color:#1b5e20">MS</div>
           <div>
             <div class="author-name">Markus Schmidt</div>
-            <div class="author-loc">CTO, Munich, Germany</div>
+            <div class="author-info">CTO · Munich, Germany 🇩🇪</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Pankaj helped us migrate our legacy system to NestJS and Postgres. The milestone-based model worked perfectly — we always knew exactly what we were paying for and when. Excellent work ethic."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#fff3e0;color:#e65100;">AS</div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"Pankaj helped us migrate our legacy monolith to NestJS and Postgres. The milestone model worked perfectly — we always knew what we were paying for. Outstanding ownership and work ethic."</p>
+        <div class="testi-author">
+          <div class="author-av" style="background:#fff8e1;color:#e65100">AS</div>
           <div>
             <div class="author-name">Ananya Sharma</div>
-            <div class="author-loc">Founder, Startup, Hyderabad, India</div>
+            <div class="author-info">Founder · Hyderabad, India 🇮🇳</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Absolut zuverlässig! We contracted Pankaj for a 3-month engagement on our e-commerce platform. He integrated ElasticSearch and Redis caching, reducing our API response times dramatically. Top tier developer."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#f3e5f5;color:#6a1b9a;">LB</div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"Absolut zuverlässig! We hired Pankaj for a 3-month engagement on our e-commerce platform. He integrated ElasticSearch and Redis caching, cutting our API response times dramatically. Top-tier."</p>
+        <div class="testi-author">
+          <div class="author-av" style="background:#f3e5f5;color:#4a148c">LB</div>
           <div>
             <div class="author-name">Lena Bauer</div>
-            <div class="author-loc">Engineering Lead, Berlin, Germany</div>
+            <div class="author-info">Engineering Lead · Berlin, Germany 🇩🇪</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Working with Pankaj on our Node.js microservices was a great experience. He took ownership of the entire module, communicated proactively, and delivered production-ready code with proper documentation."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#e0f7fa;color:#00695c;">VP</div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-quote">"Pankaj took full ownership of our Node.js microservices module. He delivered production-ready code with thorough documentation and communicated proactively throughout. Highly recommended."</p>
+        <div class="testi-author">
+          <div class="author-av" style="background:#e0f7fa;color:#004d40">VP</div>
           <div>
             <div class="author-name">Vikram Patel</div>
-            <div class="author-loc">Tech Lead, Pune, India</div>
+            <div class="author-info">Tech Lead · Pune, India 🇮🇳</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="contact-box">
-      <h2>Let's work together</h2>
-      <p>Available for hourly, weekly, and milestone-based engagements. Reach out today.</p>
-      <div class="contact-row" style="margin-bottom:1.25rem;">
-        <div class="contact-item">📞 +91 80776 57633</div>
-        <div class="contact-item">📞 +91 91939 33339</div>
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="sec-eyebrow" style="margin-bottom:0.5rem">Get in touch</div>
+        <h2>Let's build something great together</h2>
+        <p>Available for hourly, weekly retainer, and milestone-based engagements. I typically respond within 4 hours during IST business hours.</p>
+        <div class="contact-chips">
+          <div class="chip">
+            <div class="chip-icon">
+              <svg width="18" height="18" fill="#1565c0" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div>
+              <div class="chip-label">Primary</div>
+              <div class="chip-val">+91 80776 57633</div>
+            </div>
+          </div>
+          <div class="chip">
+            <div class="chip-icon">
+              <svg width="18" height="18" fill="#1565c0" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div>
+              <div class="chip-label">Alternate</div>
+              <div class="chip-val">+91 91939 33339</div>
+            </div>
+          </div>
+          <div class="chip">
+            <div class="chip-icon">
+              <svg width="18" height="18" fill="#1565c0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>
+              <div class="chip-label">Location</div>
+              <div class="chip-val">Bangalore, India</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="contact-row">
-        <a href="mailto:support@govynior.com" class="btn-primary" style="background:#1976d2;">Send me an email</a>
-        <a href="mailto:support@govynior.com" class="btn-outline">support@govynior.com</a>
+      <div class="contact-right">
+        <a href="mailto:support@govynior.com" class="email-btn">Send me an email</a>
+        <a href="mailto:support@govynior.com" class="email-btn-ghost">support@govynior.com</a>
+        <p class="response-note">Typically replies within 4 hours · Available Mon–Sat, 9am–7pm IST</p>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>© 2026 Pankaj Negi · Full Stack Developer &amp; Freelancer · Bangalore, India</p>
+    <div class="footer-left">© 2026 Pankaj Negi · Full Stack Developer &amp; Freelancer · Bangalore, India</div>
+    <div class="footer-right">support@govynior.com</div>
   </footer>
 </div>
